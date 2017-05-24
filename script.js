@@ -21,3 +21,25 @@ function makeTitle(str) {
 function firstLetter(string){
   return string = string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+//pro mode
+function pigLatin(str) {
+  var string = str.split(' ');
+  console.log('string:', string);
+  for (var i=0; i<string.length; i++){
+    var re = /^[aeiou]$/i;
+			if (re.test(string[i].charAt(0))){
+    	string[i]=string[i]+"way";
+    } else{
+      var first = string[i].substring(0,1);
+      string[i]=string[i].slice(1)+ first + "ay";
+    }
+  }
+  console.log('string:', string);
+  return string.join(' ');
+}
+
+function isVowel(aLetter){
+  var re = /^[aeiou]$/i;
+  return re.test(aLetter);
+}
